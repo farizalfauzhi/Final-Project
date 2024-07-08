@@ -1,0 +1,60 @@
+
+<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+    <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarMenuLabel">Kowiyu Warehouse</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto" style="height:100vh;">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'dashboard') ? 'bg-primary text-white' : '' %>" href="/dashboard">
+                    <i class="fa-solid fa-fw fa-gauge"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'master-produk') ? 'bg-primary text-white' : '' %>" href="/master-produk">
+                    <i class="fa-solid fa-fw fa-boxes-stacked"></i>
+                    Master Produk
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'stok-masuk') ? 'bg-primary text-white' : '' %>" href="/stok-masuk">
+                    <i class="fa-solid fa-fw fa-box-archive"></i>
+                    Stok Masuk
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'stok-keluar') ? 'bg-primary text-white' : '' %>" href="/stok-keluar">
+                    <i class="fa-solid fa-fw fa-boxes-packing"></i>
+                    Stok Keluar
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'laporan') ? 'bg-primary text-white' : '' %>" href="/laporan">
+                    <i class="fa-solid fa-fw fa-file-lines"></i>
+                    Laporan Stok
+                </a>
+            </li>
+        </ul>
+
+        <hr class="my-3">
+
+        <ul class="nav flex-column mb-auto">
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2 <%= (uri_segment[1] == 'user-management') ? 'bg-primary text-white' : '' %>" href="/user-management">
+                    <i class="fa-solid fa-fw fa-users"></i>
+                    User Management
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link d-flex align-items-center gap-2" href="/auth/logout">
+                    <i class="fa-solid fa-fw fa-right-from-bracket"></i>
+                    Keluar
+                </a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</div>

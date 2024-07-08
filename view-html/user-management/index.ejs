@@ -1,0 +1,33 @@
+<h1>User Management</h1>
+<hr>
+<a href="/user/tambah" class="btn btn-outline-primary rounded-circle mb-3">
+    <i class="fa-solid fa-plus"></i>
+</a>
+
+<% if (req.query.note && req.query.note === 'sukses' && req.query.pesan) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><i class="fa-solid fa-check-circle me-1"></i><%= req.query.pesan %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } else if (req.query.note && req.query.note === 'gagal' && req.query.pesan) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><i class="fa-solid fa-exclamation-triangle me-1"></i><%= req.query.pesan %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<ul class="list-group">
+    <% for (const i in users) { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <%= users[i].username %> (<%= users[i].nama_lengkap %>)
+            <div>
+                <a href="/user-management/<%= users[i].id %>/edit" class="btn btn-outline-primary btn-sm me-1">
+                    <i class="fa-solid fa-edit"></i> Edit
+                </a>
+                <a href="/user-management/<%= users[i].id %>/hapus" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">
+                    <i class="fa-solid fa-trash"></i> Hapus
+                </a>
+            </div>
+        </li>
+    <% } %>
+</ul>

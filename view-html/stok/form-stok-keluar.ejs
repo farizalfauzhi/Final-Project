@@ -1,0 +1,59 @@
+<h1>form stok keluar</h1>
+<hr>
+
+<% if (req.query.note == 'sukses') { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><i class="fa-solid fa-check-circle me-1"></i><%= req.query.pesan %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (req.query.note == 'info') { %>
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong><i class="fa-solid fa-check-circle me-1"></i><%= req.query.pesan %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (req.query.note == 'gagal') { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><i class="fa-solid fa-exclamation-triangle me-1"></i>Gagal, cek terminal</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (info_error) { %>
+    <strong style="color: red;">
+        <%= info_error.errno %> - <%= info_error.code %> <br>
+        <%= info_error.sqlMessage %> <br>
+    </strong>
+    <br>
+<% } %>
+
+<div class="row">
+    <div class="col-md-12 col-lg-6">
+        <form action="/stok-keluar/proses-simpan" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Produk</label>
+                <select id="form_produk" name="form_produk" class="form-select" required>
+                    <option value="">--pilih--</option>
+                    <% for (const i in produk) { %>
+                        <option value="<%= produk[i].kode %>"><%= produk[i].nama %></option>
+                    <% } %>
+                </select>
+            </div>
+        
+            <div class="mb-3">
+                <label class="form-label">Jumlah keluar</label>
+                <input type="number" min="1" class="form-control" id="form_jumlah" name="form_jumlah" required>
+            </div>
+        
+            <div class="mb-3">
+                <label class="form-label">Keterangan</label>
+                <input type="text" class="form-control" id="form_keterangan" name="form_keterangan" required>
+            </div>
+            
+            <button type="submit" class="btn btn-secondary mt-3">
+                <i class="fa-solid fa-save me-1"></i> simpan
+            </button>
+        </form>
+    </div>
+</div>
